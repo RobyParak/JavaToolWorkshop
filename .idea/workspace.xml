@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="f989c296-0bcd-41de-a42f-4f407bdb4245" name="Changes" comment="added deeplearning4j libraries" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +55,7 @@
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\1. Uni stuff\Y3\JavaToolWorkshop\src\main\java\csvReader" />
@@ -74,7 +76,11 @@
       <workItem from="1713896915326" duration="1216000" />
       <workItem from="1713898182722" duration="739000" />
       <workItem from="1713898937059" duration="115000" />
+      <workItem from="1713899071873" duration="530000" />
+      <workItem from="1713899677235" duration="40000" />
+      <workItem from="1715079699708" duration="678000" />
     </task>
+
     <task id="LOCAL-00001" summary="added deeplearning4j libraries">
       <created>1715077205950</created>
       <option name="number" value="00001" />
