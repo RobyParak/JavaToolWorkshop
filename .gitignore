@@ -36,3 +36,18 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+/.idea/sonarlint/issuestore/3/9/392ccc68d9e167a09ec2a13eb5fe4a8e8c1626bc
+/.idea/sonarlint/securityhotspotstore/3/9/392ccc68d9e167a09ec2a13eb5fe4a8e8c1626bc
+/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+/src/main/resources/archetype-resources/src/main/java/App.java
+/src/main/resources/archetype-resources/src/test/java/AppTest.java
+/src/main/resources/META-INF/maven/archetype.xml
+/.idea/sonarlint/issuestore/f/d/fdd492fed2b4b32eedc12ac8753825271387d181
+/.idea/sonarlint/securityhotspotstore/f/d/fdd492fed2b4b32eedc12ac8753825271387d181
+/src/main/resources/archetype-resources/pom.xml
+/.idea/uiDesigner.xml
