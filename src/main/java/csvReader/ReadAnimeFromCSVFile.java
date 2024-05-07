@@ -1,6 +1,6 @@
-package main.java.csvReader;
+package csvReader;
 
-import main.Anime;
+import model.Anime;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class ReadAnimeFromCSVFile {
 
     public List<Anime> read(String filename) throws FileNotFoundException {
        final List<Anime> animeList = new ArrayList<Anime>();
-        final File file1 = new File("anime.csv");
+        final File file1 = new File("data/anime.csv");
         Scanner sc = new Scanner(file1);
         String data = sc.next();
 
