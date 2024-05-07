@@ -8,7 +8,7 @@ public class MainRecommendation {
         public static void main(String[] args) throws FileNotFoundException {
             ReadAnimeFromCSVFile reader = new ReadAnimeFromCSVFile();
             try {
-                List<Anime> animeList = reader.read("data/anime.csv");
+                List<Anime> animeList = reader.read("../data/anime.csv");
 
                 // Log details of the first 5 anime
                 System.out.println("Details of the first 5 anime:");

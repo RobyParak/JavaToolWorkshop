@@ -12,8 +12,7 @@ public class ReadAnimeFromCSVFile {
 
     public List<Anime> read(String filename) throws FileNotFoundException {
        final List<Anime> animeList = new ArrayList<Anime>();
-        final File file1 = new File("data/anime.csv");
-        Scanner sc = new Scanner(file1);
+        Scanner sc = new Scanner(filename);
         String data = sc.next();
 
         while (sc.hasNext()){
