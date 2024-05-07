@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="Adding stuff to make the workshop work" />
+    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,14 +13,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2g8fYmQ7wPTFANPkItEy9lo6RKY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <![CDATA[{
-      "keyToString": {
-        "last_opened_file_path": "C:/Users/Roby/IdeaProjects"
-      }
-    }]]>
-    <property name="dynamic.classpath" value="true" />
+    "keyToString": {
+      "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+      "last_opened_file_path": "C:/Users/Roby/IdeaProjects",
+      "dynamic.classpath": "true"
+    }
+  }]]>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -29,7 +40,42 @@
       <recent name="C:\Users\Roby\Hogeschool Inholland" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="Adding stuff to make the workshop work" />
+      <created>1715084174663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715084174663</updated>
+      <workItem from="1715084176258" duration="304000" />
+    </task>
+    <task id="LOCAL-00001" summary="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;">
+      <created>1715084471788</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715084471788</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
   </component>
 </project>
