@@ -8,13 +8,15 @@ public class MainRecommendation {
         public static void main(String[] args) throws FileNotFoundException {
             ReadAnimeFromCSVFile reader = new ReadAnimeFromCSVFile();
             try {
-                List<Anime> animeList = reader.read("../data/anime.csv");
+                // src/main/java/data/anime.csv
+                List<Anime> animeList = reader.read("src/main/java/data/anime.csv");
 
                 // Log details of the first 5 anime
                 System.out.println("Details of the first 5 anime:");
                 for (int i = 0; i < Math.min(5, animeList.size()); i++) {
                     Anime anime = animeList.get(i);
-                    System.out.println("Anime " + anime);
+                    System.out.println("Anime " + anime.name + ":");
+                    System.out.println("  genre: " + anime.genre + ", Type: " + anime.type);
                     System.out.println();
                 }
             } catch (FileNotFoundException e) {

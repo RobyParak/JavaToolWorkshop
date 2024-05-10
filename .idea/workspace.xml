@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
+    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainRecommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainRecommendation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csvReader/ReadAnimeFromCSVFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csvReader/ReadAnimeFromCSVFile.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +23,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2g8fYmQ7wPTFANPkItEy9lo6RKY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -24,21 +34,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <![CDATA[{
-    "keyToString": {
-      "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-      "last_opened_file_path": "C:/Users/Roby/IdeaProjects",
-      "dynamic.classpath": "true"
-    }
-  }]]>
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainRecommendation.executor": "Run",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "dynamic.classpath": "true",
+    "git-widget-placeholder": "RobertaReccomendation",
+    "last_opened_file_path": "C:/Users/Roby/IdeaProjects",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Roby\IdeaProjects" />
       <recent name="G:\1. Uni stuff\Y3" />
       <recent name="C:\Users\Roby\Hogeschool Inholland" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainRecommendation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainRecommendation" />
+      <module name="JavaToolWorkshop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainRecommendation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
