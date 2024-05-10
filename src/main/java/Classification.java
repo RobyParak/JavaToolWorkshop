@@ -14,6 +14,7 @@ import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
+import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Nesterovs;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
@@ -30,20 +31,21 @@ public class Classification {
         int seed = 123;
         double learningRate = 0.01;
         int batchSize = 21;
-        int epochs = 30;
+        int epochs = 1;
         int inputs = 4;
-        int outputs = 1;
+        int outputs = 2;
         int hiddenNodes = 10;
 
         //Load training data
         RecordReader recordReaderTrain = new CSVRecordReader(1, ',');
-        recordReaderTrain.initialize(new FileSplit(new File("data/badminton_dataset.csv")));
-        DataSetIterator iteratorTrain = new RecordReaderDataSetIterator(recordReaderTrain, batchSize, 5, 4);
+        recordReaderTrain.initialize(new FileSplit(new File("src/main/java/data/badminton_dataset.csv")));
+        DataSetIterator iteratorTrain = new RecordReaderDataSetIterator(recordReaderTrain, batchSize, 4, 2); //labelIndex = at which index is the Y value
+        //numPossibleLabels: How many outcomes can the Y variable have? (Yes/No = 2 unique outcomes)
 
         //Load testing data
         RecordReader recordReaderTest = new CSVRecordReader(1, ',');
-        recordReaderTest.initialize(new FileSplit(new File("data/badminton_dataset_test.csv")));
-        DataSetIterator iteratorTest = new RecordReaderDataSetIterator(recordReaderTest, batchSize, 5, 4);
+        recordReaderTest.initialize(new FileSplit(new File("src/main/java/data/badminton_dataset_test.csv")));
+        DataSetIterator iteratorTest = new RecordReaderDataSetIterator(recordReaderTest, batchSize, 4, 2);
 
         MultiLayerConfiguration configuration = new NeuralNetConfiguration.Builder()
                 .seed(seed)
@@ -52,12 +54,12 @@ public class Classification {
                 .list()
                 .layer(new DenseLayer.Builder()
                         .nIn(inputs)
-                        .nOut(outputs)
+                        .nOut(hiddenNodes)
                         .activation(Activation.RELU)
                         .build()
                 )
-                .layer(new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
-                        .activation(Activation.RELU)
+                .layer(new OutputLayer.Builder(LossFunctions.LossFunction.XENT)
+                        .activation(Activation.SIGMOID)
                         .nIn(hiddenNodes)
                         .nOut(outputs)
                         .build()
@@ -66,9 +68,13 @@ public class Classification {
 
         MultiLayerNetwork model = new MultiLayerNetwork(configuration);
         model.init();
-        model.setListeners(new ScoreIterationListener(10));
-        model.fit(iteratorTrain, epochs);
+        model.setListeners(new ScoreIterationListener(1));
 
+        for (int i = 0; i < epochs; i++){
+            iteratorTrain.reset();
+            model.fit(iteratorTrain);
+
+        }
         System.out.println("Evaluating Model...");
         Evaluation evaluation = new Evaluation(outputs);
 
@@ -82,5 +88,13 @@ public class Classification {
 
         System.out.println(evaluation.stats());
 
+
+        int[][] newValues = {{2, 2, 1, 0}};
+
+        INDArray newValuesInd = Nd4j.create(newValues);
+
+        INDArray prediction = model.output(newValuesInd);
+
+        System.out.println("Prediction is: " + prediction);
     }
 }
