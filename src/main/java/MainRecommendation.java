@@ -30,6 +30,9 @@ public class MainRecommendation {
                 System.err.println("File not found: " + e.getMessage());
             }
             Anime anime = pickAnime(animeList);
+            if (anime == null) {
+                return;
+            }
             recommendAnime(anime, animeList);
 
         }
