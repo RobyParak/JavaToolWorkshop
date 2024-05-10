@@ -1,114 +1,86 @@
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
-import org.datavec.api.transform.TransformProcess;
-import org.datavec.api.transform.schema.Schema;
-import org.datavec.api.writable.Writable;
-import org.datavec.local.transforms.LocalTransformExecutor;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
-import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
+import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.activations.Activation;
-import org.nd4j.linalg.dataset.api.preprocessor.NormalizerStandardize;
-import org.nd4j.linalg.learning.config.Adam;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.dataset.DataSet;
+import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
+import org.nd4j.linalg.learning.config.Nesterovs;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+/*
+    Credits here
+*/
 
 public class Classification {
-    public static void main(String[] args) throws IOException {
-        int batchSize = 1;
-        int labelIndex = 4;
-        int numClasses = 2;
+    public static void main(String[] args) throws IOException, InterruptedException {
+        //Set the variables used for the model
+        int seed = 123;
+        double learningRate = 0.01;
+        int batchSize = 21;
+        int epochs = 30;
+        int inputs = 4;
+        int outputs = 1;
+        int hiddenNodes = 10;
 
-        RecordReader recordReader = new CSVRecordReader(1 ,',');
-        try
-        {
-            recordReader.initialize(new FileSplit(new File("src/main/java/data/badminton_dataset.csv")));
+        //Load training data
+        RecordReader recordReaderTrain = new CSVRecordReader(1, ',');
+        recordReaderTrain.initialize(new FileSplit(new File("data/badminton_dataset.csv")));
+        DataSetIterator iteratorTrain = new RecordReaderDataSetIterator(recordReaderTrain, batchSize, 5, 4);
 
-            //Create Categorical Schema
-            Schema schema = new Schema.Builder()
-                    .addColumnString("Outlook")
-                    .addColumnString("Temperature")
-                    .addColumnString("Humidity")
-                    .addColumnString("Wind")
-                    .addColumnString("Play_Badminton")
-                    .build();
+        //Load testing data
+        RecordReader recordReaderTest = new CSVRecordReader(1, ',');
+        recordReaderTest.initialize(new FileSplit(new File("data/badminton_dataset_test.csv")));
+        DataSetIterator iteratorTest = new RecordReaderDataSetIterator(recordReaderTest, batchSize, 5, 4);
 
-            String[] outlookCategories = {"Overcast", "Sunny", "Rain"};
-            String[] temperatureCategories = {"Hot", "Mild", "Cool"};
-            String[] humidityCategories = {"High", "Normal"};
-            String[] windCategories = {"Weak", "Strong"};
-            String[] playBadmintonCategories = {"Yes", "No"};
+        MultiLayerConfiguration configuration = new NeuralNetConfiguration.Builder()
+                .seed(seed)
+                .weightInit(WeightInit.XAVIER)
+                .updater(new Nesterovs(learningRate, 0.9))
+                .list()
+                .layer(new DenseLayer.Builder()
+                        .nIn(inputs)
+                        .nOut(outputs)
+                        .activation(Activation.RELU)
+                        .build()
+                )
+                .layer(new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
+                        .activation(Activation.RELU)
+                        .nIn(hiddenNodes)
+                        .nOut(outputs)
+                        .build()
+                )
+                .build();
 
-            TransformProcess transformProcess = new TransformProcess.Builder(schema)
-                    .stringToCategorical("Outlook", Arrays.asList(outlookCategories))
-                    .stringToCategorical("Temperature", Arrays.asList(temperatureCategories))
-                    .stringToCategorical("Humidity", Arrays.asList(humidityCategories))
-                    .stringToCategorical("Wind", Arrays.asList(windCategories))
-                    .stringToCategorical("Play_Badminton", Arrays.asList(playBadmintonCategories))
-                    .build();
+        MultiLayerNetwork model = new MultiLayerNetwork(configuration);
+        model.init();
+        model.setListeners(new ScoreIterationListener(10));
+        model.fit(iteratorTrain, epochs);
 
-            List<List<Writable>> csvData = new ArrayList<>();
+        System.out.println("Evaluating Model...");
+        Evaluation evaluation = new Evaluation(outputs);
 
-            while(recordReader.hasNext()){
-                csvData.add(recordReader.next());
-            }
-
-            List<List<Writable>> transformedData = LocalTransformExecutor.execute(csvData, transformProcess);
-
-            for (List<Writable> data:
-                    transformedData) {
-                System.out.println(data);
-            }
-
-            RecordReaderDataSetIterator iterator = new RecordReaderDataSetIterator.Builder(recordReader, batchSize)
-                    .classification(labelIndex, numClasses)
-                    .build();
-            iterator.setPreProcessor(new NormalizerStandardize());
-
-            //Define Network
-            MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-                    .seed(123)
-                    .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-                    .updater(new Adam(0.01))
-                    .list()
-                    .layer(0, new DenseLayer.Builder().nIn(12).nOut(10)
-                            .activation(Activation.RELU)
-                            .build())
-                    .layer(1, new DenseLayer.Builder().nIn(10).nOut(8)
-                            .activation(Activation.RELU)
-                            .build())
-                    .layer(2, new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
-                            .activation(Activation.SOFTMAX)
-                            .nIn(8).nOut(numClasses).build())
-                    .build();
-
-            //Model Training
-            MultiLayerNetwork model = new MultiLayerNetwork(conf);
-            model.init();
-            model.setListeners(new ScoreIterationListener(10));
-            int numEpochs = 100;
-            for (int i = 0; i < numEpochs; i++) {
-                model.fit(iterator);
-            }
-
-            Evaluation evaluation = model.evaluate(iterator);
-            System.out.println("Evaluation: " + evaluation.stats());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }finally {
-            recordReader.close();
+        while(iteratorTest.hasNext()){
+            DataSet testDataSet = iteratorTest.next();
+            INDArray features = testDataSet.getFeatures();
+            INDArray labels = testDataSet.getLabels();
+            INDArray predicted = model.output(features, false);
+            evaluation.eval(labels, predicted);
         }
+
+        System.out.println(evaluation.stats());
+
     }
 }
