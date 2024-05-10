@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="Sorted out issues with anime genres having a comma that separates them">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -95,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715084471788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Sorted out issues with anime genres having a comma that separates them">
+      <option name="closed" value="true" />
+      <created>1715353117043</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715353117043</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +121,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
+    <MESSAGE value="Sorted out issues with anime genres having a comma that separates them" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorted out issues with anime genres having a comma that separates them" />
   </component>
 </project>

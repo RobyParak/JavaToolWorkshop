@@ -15,4 +15,4 @@ U
 a
 1src/main/java/csvReader/ReadAnimeFromCSVFile.java,0/9/092457515b91057cea41ade3b8a7c6c0e8091916
 N
-src/main/java/model/Anime.java,f\3\f3ac205808622f323cf388be309444101b8564d3
+src/main/java/model/Anime.java,f/3/f3ac205808622f323cf388be309444101b8564d3
