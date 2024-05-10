@@ -36,8 +36,11 @@ public class ReadAnimeFromCSVFile {
                 anime.rating = dataList[5];
                 anime.members = dataList[6];
 
-                // Remove double quotes from genre
+                // Remove double quotes from genre and end comma
                 anime.genre = anime.genre.replaceAll("\"", "");
+                if (anime.genre.endsWith(",")) {
+                    anime.genre = anime.genre.substring(0, anime.genre.length() - 1);
+                }
 
                 animeList.add(anime);
             } else {
