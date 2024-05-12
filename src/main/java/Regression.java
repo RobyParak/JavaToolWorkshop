@@ -1,29 +1,48 @@
-import csvReader.ReadCarFromCSVFile;
-import model.Car; // Import the Car class
+import model.Car;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Regression {
     public static void main(String[] args) {
-        // Create an instance of ReadCarFromCSVFile
-        ReadCarFromCSVFile carReader = new ReadCarFromCSVFile();
-
-        // Specify the filename of the CSV file containing car data
-        String filename = "src/main/java/data/auto-mpg.csv"; // Adjust the filename as needed
-
+        List<Car> carList = new ArrayList<>();
+        File file = new File("java/data/auto-mpg.csv"); // Specify the filename
         try {
-            // Read car data from the CSV file
-            List<Car> cars = carReader.read(filename);
-
-            // Process the car data as needed
-            for (Car car : cars) {
-                // Print each car's details to the console
-                System.out.println(car.toString());
+            Scanner scanner = new Scanner(file);
+            // Skip the header row
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+            }
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] data = line.split(",");
+                // Ensure data array has enough elements
+                if (data.length >= 9) { // Assuming 9 attributes for car data
+                    double mpg = Double.parseDouble(data[0]);
+                    int cylinders = Integer.parseInt(data[1]);
+                    double displacement = Double.parseDouble(data[2]);
+                    int horsepower = Integer.parseInt(data[3]);
+                    int weight = Integer.parseInt(data[4]);
+                    double acceleration = Double.parseDouble(data[5]);
+                    int modelYear = Integer.parseInt(data[6]);
+                    int origin = Integer.parseInt(data[7]);
+                    String carName = data[8];
+                    // Create a new Car object and add it to the list
+                    Car car = new Car(mpg, cylinders, displacement, horsepower, weight, acceleration,
+                            modelYear, origin, carName);
+                    carList.add(car);
+                }
+            }
+            scanner.close();
+            // Display the list of cars
+            for (Car car : carList) {
+                System.out.println(car);
             }
         } catch (FileNotFoundException e) {
-            // Handle the case where the file is not found
-            System.err.println("File not found: " + filename);
+            System.err.println("File not found");
             e.printStackTrace();
         }
     }

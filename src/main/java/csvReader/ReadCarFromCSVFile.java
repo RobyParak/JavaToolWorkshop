@@ -1,12 +1,12 @@
 package csvReader;
 
+import model.Car;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import model.Car; // Import the Car class
 
 public class ReadCarFromCSVFile {
 
@@ -26,14 +26,14 @@ public class ReadCarFromCSVFile {
 
             // Ensure data array has enough elements
             if (data.length >= 9) { // Assuming 9 attributes for car data
-                double mpg = Double.parseDouble(data[0]);
-                int cylinders = Integer.parseInt(data[1]);
-                double displacement = Double.parseDouble(data[2]);
-                int horsepower = Integer.parseInt(data[3]);
-                int weight = Integer.parseInt(data[4]);
-                double acceleration = Double.parseDouble(data[5]);
-                int modelYear = Integer.parseInt(data[6]);
-                int origin = Integer.parseInt(data[7]);
+                double mpg = parseDouble(data[0]);
+                int cylinders = parseInt(data[1]);
+                double displacement = parseDouble(data[2]);
+                int horsepower = parseInt(data[3]);
+                int weight = parseInt(data[4]);
+                double acceleration = parseDouble(data[5]);
+                int modelYear = parseInt(data[6]);
+                int origin = parseInt(data[7]);
                 String carName = data[8];
 
                 // Create a new Car object and add it to the list
@@ -44,5 +44,27 @@ public class ReadCarFromCSVFile {
         }
         scanner.close();
         return carList;
+    }
+
+    private double parseDouble(String value) {
+        if (value.equals("?")) {
+            return 0; // Return 0 if the value is "?"
+        }
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            return 0; // Return 0 if parsing fails
+        }
+    }
+
+    private int parseInt(String value) {
+        if (value.equals("?")) {
+            return 0; // Return 0 if the value is "?"
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return 0; // Return 0 if parsing fails
+        }
     }
 }
