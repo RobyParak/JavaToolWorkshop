@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="Add the chess data.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Regression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/csvReader/ReadGameFromCSVFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game.java" afterDir="false" />
+    <list default="true" id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="Read and display the games into the terminal.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/games_2024.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/games_2024.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Regression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Regression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csvReader/ReadGameFromCSVFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csvReader/ReadCarFromCSVFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/games_2024.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +27,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/data-chess" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -58,16 +58,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/avorn/IdeaProjects/JavaToolWorkshop/src/main",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/avorn/IdeaProjects/JavaToolWorkshop/src/main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\avorn\IdeaProjects\JavaToolWorkshop\src\main\java\data" />
@@ -128,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715342033540</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Read and display the games into the terminal.">
+      <option name="closed" value="true" />
+      <created>1715513562319</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715513562319</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,6 +166,7 @@
     <MESSAGE value="Add the data about chess games." />
     <MESSAGE value="Add the data." />
     <MESSAGE value="Add the chess data." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the chess data." />
+    <MESSAGE value="Read and display the games into the terminal." />
+    <option name="LAST_COMMIT_MESSAGE" value="Read and display the games into the terminal." />
   </component>
 </project>

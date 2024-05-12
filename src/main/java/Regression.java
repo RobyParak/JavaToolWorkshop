@@ -1,25 +1,25 @@
-import csvReader.ReadGameFromCSVFile;
-import model.Game;
+import csvReader.ReadCarFromCSVFile;
+import model.Car; // Import the Car class
 
 import java.io.FileNotFoundException;
 import java.util.List;
 
 public class Regression {
     public static void main(String[] args) {
-        // Create an instance of ReadGameFromCSVFile
-        ReadGameFromCSVFile gameReader = new ReadGameFromCSVFile();
+        // Create an instance of ReadCarFromCSVFile
+        ReadCarFromCSVFile carReader = new ReadCarFromCSVFile();
 
-        // Specify the filename of the CSV file containing game data
-        String filename = "java/data/games_2024.csv";
+        // Specify the filename of the CSV file containing car data
+        String filename = "src/main/java/data/auto-mpg.csv"; // Adjust the filename as needed
 
         try {
-            // Read game data from the CSV file
-            List<Game> games = gameReader.read(filename);
+            // Read car data from the CSV file
+            List<Car> cars = carReader.read(filename);
 
-            // Process the game data as needed
-            for (Game game : games) {
-                // For example, print each game to the console
-                System.out.println(game.toString());
+            // Process the car data as needed
+            for (Car car : cars) {
+                // Print each car's details to the console
+                System.out.println(car.toString());
             }
         } catch (FileNotFoundException e) {
             // Handle the case where the file is not found
