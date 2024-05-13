@@ -1,0 +1,21 @@
+Outlook:
+    0: Overcast
+    1: Sunny
+    2: Rain
+
+Temperature:
+    0: Cool
+    1: Mild
+    2: Hot
+
+Humidity:
+    0: Normal
+    1: High
+
+Wind:
+    0: Weak
+    1: Strong
+
+Play_Badminton:
+    0: No
+    1: Yes
