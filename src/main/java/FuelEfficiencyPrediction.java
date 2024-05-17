@@ -1,3 +1,4 @@
+import org.apache.commons.math3.stat.correlation.PearsonsCorrelation;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.records.reader.impl.transform.TransformProcessRecordReader;
 import org.datavec.api.split.FileSplit;
@@ -12,6 +13,14 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 import org.nd4j.evaluation.regression.RegressionEvaluation;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -23,8 +32,11 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class FuelEfficiencyPrediction {
 
@@ -59,6 +71,17 @@ public class FuelEfficiencyPrediction {
         log.debug("This is the average relative square error: " + eval.averagerelativeSquaredError());
         log.debug("This is the average pearson correlation: " + eval.averagePearsonCorrelation());
         log.debug("This is the average R Square: " + eval.averageRSquared());
+
+        // Generate scatter plots for key features against the target variable (MPG)
+        generateScatterPlot(trainingData, "Weight", 4, "Weight vs MPG");
+        generateScatterPlot(trainingData, "Horsepower", 3, "Horsepower vs MPG");
+        generateScatterPlot(trainingData, "Cylinders", 4, "Cylinders vs MPG");
+        generateScatterPlot(trainingData, "Displacement", 3, "Displacement vs MPG");
+        generateScatterPlot(trainingData, "Model Year", 4, "Model Year vs MPG");
+        generateScatterPlot(trainingData, "Origin_1", 3, "Origin_1 vs MPG");
+
+        // Calculate and print correlations
+        calculateAndPrintCorrelations(trainingData);
     }
 
     private static MultiLayerNetwork buildMultiLayerNetwork(MultiLayerConfiguration conf) {
@@ -141,5 +164,59 @@ public class FuelEfficiencyPrediction {
                 .addColumnString("Model Name")
                 .build();
         return schema;
+    }
+
+    private static void generateScatterPlot(DataSet data, String featureName, int featureIndex, String title) {
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        XYSeries series = new XYSeries(featureName + " vs MPG");
+
+        INDArray features = data.getFeatures();
+        INDArray labels = data.getLabels();
+
+        for (int i = 0; i < features.rows(); i++) {
+            double x = features.getDouble(i, featureIndex);
+            double y = labels.getDouble(i);
+            series.add(x, y);
+        }
+
+        dataset.addSeries(series);
+
+        JFreeChart scatterPlot = ChartFactory.createScatterPlot(
+                title,
+                featureName,
+                "MPG",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+        );
+
+        XYPlot plot = (XYPlot) scatterPlot.getPlot();
+        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer(false, true);
+        plot.setRenderer(renderer);
+
+        JFrame frame = new JFrame(title);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(new ChartPanel(scatterPlot));
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    private static void calculateAndPrintCorrelations(DataSet data) {
+        INDArray features = data.getFeatures();
+        INDArray labels = data.getLabels();
+        int numFeatures = features.columns();
+
+        double[] labelArray = labels.toDoubleVector();
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+
+        List<String> featureNames = Arrays.asList("Cylinders", "Displacement", "Horsepower", "Weight", "Acceleration", "Model Year", "Origin_1", "Origin_2", "Origin_3");
+
+        for (int i = 0; i < numFeatures; i++) {
+            double[] featureArray = features.getColumn(i).toDoubleVector();
+            double corr = correlation.correlation(featureArray, labelArray);
+            log.debug("Correlation between MPG and feature " + featureNames.get(i) + ": " + corr);
+        }
     }
 }
