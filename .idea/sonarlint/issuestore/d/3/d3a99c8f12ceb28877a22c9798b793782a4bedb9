@@ -1,0 +1,53 @@
+
+h
+java:S1192P"KDefine a constant instead of duplicating this literal "Model Year" 3 times.(åÎºù8¨‰³ø1
+m
+java:S1192M"KDefine a constant instead of duplicating this literal "Horsepower" 3 times.(¸öìÆıÿÿÿÿ8ı±ƒ³ø1
+l
+java:S1192N"JDefine a constant instead of duplicating this literal "Cylinders" 3 times.(¨ô¥°şÿÿÿÿ8§¢‡³ø1
+j
+java:S1192O"MDefine a constant instead of duplicating this literal "Displacement" 3 times.(ƒè’¬8Òì‡³ø1
+d
+java:S1192L"GDefine a constant instead of duplicating this literal "Weight" 3 times.(²‚Üğ8ü±ƒ³ø1
+~
+java:S1488_"\Immediately return this expression instead of assigning it to the temporary variable "conf".(‹ø®Áıÿÿÿÿ8ş±ƒ³ø1
+‡
+java:S1488‹"dImmediately return this expression instead of assigning it to the temporary variable "testAndTrain".(ú‹äÁùÿÿÿÿ8ÿ±ƒ³ø1
+†
+java:S1488–"hImmediately return this expression instead of assigning it to the temporary variable "transformProcess".(ïç”8ÿ±ƒ³ø1
+{
+java:S1488"^Immediately return this expression instead of assigning it to the temporary variable "schema".(ŠÂØ8ÿ±ƒ³ø1
+y
+java:S2629D"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ùğŸŞ8€²ƒ³ø1
+~
+java:S2629E"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ş¾‘Ôúÿÿÿÿ8€²ƒ³ø1
+y
+java:S2629F"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ùÁƒ8€²ƒ³ø1
+~
+java:S2629G"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(İ€µÁşÿÿÿÿ8²ƒ³ø1
+~
+java:S2629H"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ŸÙ¾ƒÿÿÿÿÿ8²ƒ³ø1
+~
+java:S2629I"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ù§¼ïùÿÿÿÿ8²ƒ³ø1
+N
+java:S2629Û"7Use the built-in formatting to construct this argument.(ÑÑ•Ÿ
+0
+java:S1220""Move this file to a named package.
+j
+java:S2095z"MUse try-with-resources or close this "CSVRecordReader" in a "finally" clause.(Îìö«8¢²ƒ³ø1
+^
+java:S3457D"AFormat specifiers should be used instead of string concatenation.(ùğŸŞ8ª²ƒ³ø1
+c
+java:S3457E"AFormat specifiers should be used instead of string concatenation.(ş¾‘Ôúÿÿÿÿ8ª²ƒ³ø1
+^
+java:S3457F"AFormat specifiers should be used instead of string concatenation.(ùÁƒ8«²ƒ³ø1
+c
+java:S3457G"AFormat specifiers should be used instead of string concatenation.(İ€µÁşÿÿÿÿ8«²ƒ³ø1
+c
+java:S3457H"AFormat specifiers should be used instead of string concatenation.(ŸÙ¾ƒÿÿÿÿÿ8«²ƒ³ø1
+c
+java:S3457I"AFormat specifiers should be used instead of string concatenation.(ù§¼ïùÿÿÿÿ8¬²ƒ³ø1
+g
+java:S3252È"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ê²ƒ³ø1
+X
+java:S3457Û"AFormat specifiers should be used instead of string concatenation.(ÑÑ•Ÿ
