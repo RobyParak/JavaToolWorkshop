@@ -8,8 +8,8 @@
   <url>http://maven.apache.org</url>
 
     <properties>
-      <java.version>17</java.version>
-      <dl4j-master.version>1.0.0-M2.1</dl4j-master.version>
+
+        <dl4j-master.version>1.0.0-M2.1</dl4j-master.version>
         <nd4j.backend>nd4j-native</nd4j.backend>
         <java.version>1.8</java.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -134,19 +134,23 @@
       <version>${javacv.version}</version>
     </dependency>
 
-    <!-- Test dependency. Ignore for your own application. -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
+      <groupId>org.apache.arrow</groupId>
+      <artifactId>arrow-memory-netty</artifactId>
+      <version>16.0.0</version>
+      <scope>runtime</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
+      <groupId>org.apache.arrow</groupId>
+      <artifactId>arrow-memory-core</artifactId>
+      <version>16.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-csv</artifactId>
+      <version>1.10.0</version>
     </dependency>
   </dependencies>
 </project>

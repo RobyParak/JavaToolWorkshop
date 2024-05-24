@@ -4,59 +4,110 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="Sorted out issues with anime genres having a comma that separates them">
+
+    <list default="true" id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="Display car objects onto the terminal.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/FuelEfficiencyPrediction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainRecommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainRecommendation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Regression.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csvReader/ReadCarFromCSVFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/auto-mpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/auto-mpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Car.java" beforeDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="EmptyReccomendation" />
+        <entry key="$PROJECT_DIR$" value="feature/data-chess" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
 }</component>
-  <component name="ProjectId" id="2g8fYmQ7wPTFANPkItEy9lo6RKY" />
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a43b9c32-30a8-4089-8a88-52cec2668fba" />
+        <option name="url" value="https://github.com/RobyParak/JavaToolWorkshop" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+
+  <component name="ProjectId" id="2gGvqdLJzgJX0pzBm0EZFg664DJ" />
+
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
-    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.MainRecommendation.executor&quot;: &quot;Run&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;dynamic.classpath&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RobertaReccomendation&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roby/IdeaProjects&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/avorn/IdeaProjects/JavaToolWorkshop/src/main&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Roby\IdeaProjects" />
-      <recent name="G:\1. Uni stuff\Y3" />
-      <recent name="C:\Users\Roby\Hogeschool Inholland" />
+
+      <recent name="C:\Users\avorn\IdeaProjects\JavaToolWorkshop\src\main\java\data" />
+
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MPGRegression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MPGRegression" />
+      <module name="JavaToolWorkshop" />
+      <shortenClasspath name="ARGS_FILE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <shortenClasspath name="ARGS_FILE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MPGRegression" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RunManager">
     <configuration name="MainRecommendation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -83,48 +134,90 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a5e861b8-c4d8-4360-a378-da77c92e3bc4" name="Changes" comment="Adding stuff to make the workshop work" />
-      <created>1715084174663</created>
+
+      <changelist id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="" />
+      <created>1715336923634</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1715084174663</updated>
-      <workItem from="1715084176258" duration="304000" />
+      <updated>1715336923634</updated>
     </task>
-    <task id="LOCAL-00001" summary="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;">
-      <created>1715084471788</created>
+    <task id="LOCAL-00001" summary="Add the data about chess games.">
+      <option name="closed" value="true" />
+      <created>1715339943920</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1715084471788</updated>
+      <updated>1715339943920</updated>
     </task>
-    <task id="LOCAL-00002" summary="Sorted out issues with anime genres having a comma that separates them">
+    <task id="LOCAL-00002" summary="Add the data.">
       <option name="closed" value="true" />
-      <created>1715353117043</created>
+      <created>1715340591235</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1715353117043</updated>
+      <updated>1715340591235</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add the chess data.">
+      <option name="closed" value="true" />
+      <created>1715342033540</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715342033540</updated>
+
+    </task>
+    <task id="LOCAL-00004" summary="Read and display the games into the terminal.">
+      <option name="closed" value="true" />
+      <created>1715513562319</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715513562319</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Change the dataset to auto-mpg. Update all the classes affected.">
+      <option name="closed" value="true" />
+      <created>1715519124912</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715519124912</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added &lt;component name=&quot;PropertiesComponent&quot;&gt;&#10;          &lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;&#10;      &lt;/component&gt;" />
-    <MESSAGE value="Sorted out issues with anime genres having a comma that separates them" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sorted out issues with anime genres having a comma that separates them" />
+
+    <MESSAGE value="Add the data about chess games." />
+    <MESSAGE value="Add the data." />
+    <MESSAGE value="Add the chess data." />
+    <MESSAGE value="Read and display the games into the terminal." />
+    <MESSAGE value="Change the dataset to auto-mpg. Update all the classes affected." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change the dataset to auto-mpg. Update all the classes affected." />
+
   </component>
 </project>
