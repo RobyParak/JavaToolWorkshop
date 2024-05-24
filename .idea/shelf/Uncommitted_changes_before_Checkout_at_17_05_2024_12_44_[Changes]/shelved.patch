@@ -1,0 +1,25 @@
+Index: src/main/java/FuelEfficiencyPrediction.java
+===================================================================
+diff --git a/src/main/java/FuelEfficiencyPrediction.java b/src/main/java/Regression.java
+rename from src/main/java/FuelEfficiencyPrediction.java
+rename to src/main/java/Regression.java
+--- a/src/main/java/FuelEfficiencyPrediction.java	
++++ b/src/main/java/Regression.java	
+@@ -26,13 +26,14 @@
+ import java.io.File;
+ import java.io.IOException;
+ 
+-public class FuelEfficiencyPrediction {
++public class Regression {
+ 
+-    private static final Logger log = LoggerFactory.getLogger(FuelEfficiencyPrediction.class);
++    private static final Logger log = LoggerFactory.getLogger(Regression.class);
+ 
+     public static void main(String[] args) throws Exception {
++        // Define the hyperparameters
+         final int batchSize = 400;
+-        final int nEpochs = 2000;
++        final int nEpochs = 500;
+         int seed = 12345;
+         double learningRate = 0.001;
+         int numInputs = 9;

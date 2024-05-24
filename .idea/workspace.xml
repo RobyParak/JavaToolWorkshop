@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="Display car objects onto the terminal.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/FuelEfficiencyPrediction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2024_13_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2024_13_50__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2024_13_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2024_13_51__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2024_13_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2024_13_52__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Regression.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csvReader/ReadCarFromCSVFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/auto-mpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/auto-mpg.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Car.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +159,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="feature/regression" />
                       </list>
                     </value>
                   </entry>
