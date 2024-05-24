@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="Display car objects onto the terminal.">
       <change afterPath="$PROJECT_DIR$/src/main/java/FuelEfficiencyPrediction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -12,12 +13,14 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/csvReader/ReadCarFromCSVFile.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/auto-mpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/auto-mpg.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Car.java" beforeDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -29,6 +32,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="feature/data-chess" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,7 +57,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+
   <component name="ProjectId" id="2gGvqdLJzgJX0pzBm0EZFg664DJ" />
+
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -61,17 +67,21 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/avorn/IdeaProjects/JavaToolWorkshop/src/main&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+
       <recent name="C:\Users\avorn\IdeaProjects\JavaToolWorkshop\src\main\java\data" />
+
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -99,9 +109,32 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="RunManager">
+    <configuration name="MainRecommendation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainRecommendation" />
+      <module name="JavaToolWorkshop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainRecommendation" />
+        <item itemvalue="Application.MainRecommendation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+
       <changelist id="c0d74048-296a-482a-bfe3-a039a35408b7" name="Changes" comment="" />
       <created>1715336923634</created>
       <option name="number" value="Default" />
@@ -131,6 +164,7 @@
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1715342033540</updated>
+
     </task>
     <task id="LOCAL-00004" summary="Read and display the games into the terminal.">
       <option name="closed" value="true" />
@@ -156,6 +190,7 @@
       <map>
         <entry key="MAIN">
           <value>
+
             <State>
               <option name="FILTERS">
                 <map>
@@ -169,17 +204,20 @@
                 </map>
               </option>
             </State>
+
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+
     <MESSAGE value="Add the data about chess games." />
     <MESSAGE value="Add the data." />
     <MESSAGE value="Add the chess data." />
     <MESSAGE value="Read and display the games into the terminal." />
     <MESSAGE value="Change the dataset to auto-mpg. Update all the classes affected." />
     <option name="LAST_COMMIT_MESSAGE" value="Change the dataset to auto-mpg. Update all the classes affected." />
+
   </component>
 </project>

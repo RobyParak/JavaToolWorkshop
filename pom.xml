@@ -8,6 +8,7 @@
   <url>http://maven.apache.org</url>
 
     <properties>
+
         <dl4j-master.version>1.0.0-M2.1</dl4j-master.version>
         <nd4j.backend>nd4j-native</nd4j.backend>
         <java.version>1.8</java.version>
