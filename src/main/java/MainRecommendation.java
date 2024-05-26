@@ -5,8 +5,11 @@ import org.nd4j.linalg.factory.Nd4j;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MainRecommendation {
     static List<Anime> animeList = null;
@@ -30,7 +33,7 @@ public class MainRecommendation {
         } catch (FileNotFoundException e) {
             System.err.println("File not found: " + e.getMessage());
         }
-        Anime anime = pickAnime(animeList);
+        final Anime anime = pickAnime(animeList);
         if (anime == null) {
             return;
         }
@@ -46,17 +49,12 @@ public class MainRecommendation {
      * @return The Anime object corresponding to the entered name.
      */
     private static Anime pickAnime(final List<Anime> animeList) {
-        Scanner sc = new Scanner(System.in);
+        final Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Enter the name of the anime you want to pick:");
-            String animeName = sc.nextLine();
+            final String animeName = sc.nextLine();
             for (Anime anime : animeList) {
                 if (anime.name.equalsIgnoreCase(animeName)) {
-                    // Print details of the found anime
-//                System.out.println("Anime " + anime.name + ":");
-//                System.out.println("  genre: " + anime.genre);
-//                System.out.println("  type: " + anime.type);
-                    // Return the found anime
                     return anime;
                 }
             }
@@ -65,14 +63,22 @@ public class MainRecommendation {
         }
     }
 
-
+    /**
+     * Recommends similar anime based on the genres of the picked anime.
+     * <p>
+     * This method converts the genres of the anime list into vectors, calculates the cosine similarity
+     * matrix, and recommends similar anime to the picked anime.
+     *
+     * @param pickedAnime The anime chosen by the user.
+     * @param animeList   The list of all available anime.
+     */
     private static void recommendAnime(final Anime pickedAnime, final List<Anime> animeList) {
         final INDArray vectors = convertGenresToVectors(animeList);
         similarityMatrix = calculateCosineSimilarity(vectors);
 
         // Recommend similar anime
         if (pickedAnime != null) {
-            List<Anime> recommendations = recommendAnime(pickedAnime, animeList, 5);
+            List<Anime> recommendations = getListOfRecommendedAnime(pickedAnime, animeList, 5);
             System.out.println("Recommendations for '" + pickedAnime.name + "':");
             for (Anime recommendation : recommendations) {
                 System.out.println(recommendation.name);
@@ -80,6 +86,14 @@ public class MainRecommendation {
         }
     }
 
+    /**
+     * Converts the genres of the anime list into binary vectors.
+     * This method creates a binary vector for each anime, indicating the presence (1) or absence (0) of each genre.
+     * These vectors are then used to compute the cosine similarity between anime, which forms the basis for the recommendation system.
+     *
+     * @param animeList The list of all available anime.
+     * @return INDArray containing the binary genre vectors for each anime.
+     */
     private static INDArray convertGenresToVectors(final List<Anime> animeList) {
         // This approach converts each anime's genres into a binary vector
         //  indicating the presence (1) or absence (0) of each genre.
@@ -87,10 +101,10 @@ public class MainRecommendation {
         //  between anime, which forms the basis for the recommendation system.
         final List<String> allGenres = extractAllGenres(animeList);
         final int numGenres = allGenres.size();
-        INDArray vectors = Nd4j.create(animeList.size(), numGenres);
+        final INDArray vectors = Nd4j.create(animeList.size(), numGenres);
         for (int i = 0; i < animeList.size(); i++) {
-            Anime anime = animeList.get(i);
-            String[] animeGenres = anime.genre.split(", ");
+            final Anime anime = animeList.get(i);
+            final String[] animeGenres = anime.genre.split(", ");
             for (String genre : animeGenres) {
                 int index = allGenres.indexOf(genre);
                 if (index != -1) {
@@ -101,12 +115,12 @@ public class MainRecommendation {
         return vectors;
     }
 
-    private static List<String> extractAllGenres(List<Anime> animeList) {
+    private static List<String> extractAllGenres(final List<Anime> animeList) {
         // Extract all unique genres from the anime list
         List<String> allGenres = new ArrayList<>();
         for (Anime anime : animeList) {
             //this splits the genre string which contains all genres for that anime into an array of genres
-            String[] animeGenres = anime.genre.split(", ");
+            final String[] animeGenres = anime.genre.split(", ");
             for (String genre : animeGenres) {
                 if (!allGenres.contains(genre)) {
                     allGenres.add(genre);
@@ -116,7 +130,16 @@ public class MainRecommendation {
         return allGenres;
     }
 
-    private static INDArray calculateCosineSimilarity(INDArray vectors) {
+    /**
+     * Calculates the cosine similarity matrix for the given genre vectors.
+     * This method computes the cosine similarity between each pair of anime using their binary genre vectors.
+     * The cosine similarity is calculated by taking the dot product of the vectors.
+     *
+     * @param vectors The INDArray containing the binary genre vectors for each anime.
+     * @return INDArray containing the cosine similarity matrix.
+     */
+    private static INDArray calculateCosineSimilarity(final INDArray vectors) {
+
         return vectors.mmul(vectors.transpose());
     }
 
@@ -128,18 +151,20 @@ public class MainRecommendation {
      * @param numRecommendations The number of similar anime to recommend.
      * @return A list of recommended anime that are similar to the picked anime.
      */
-    private static List<Anime> recommendAnime(Anime pickedAnime, List<Anime> animeList, int numRecommendations) {
+    private static List<Anime> getListOfRecommendedAnime(final Anime pickedAnime, final List<Anime> animeList, final int numRecommendations) {
         // find the index of the picked anime in the anime list and store it in the variable index
-        int index = animeList.indexOf(pickedAnime);
+        final int index = animeList.indexOf(pickedAnime);
         if (index == -1) {
             return new ArrayList<>();
         }
 
         // Sort anime by similarity score
-        double[] similarities = similarityMatrix.getRow(index).toDoubleVector();
+        final double[] similarities = similarityMatrix.getRow(index).toDoubleVector();
+
         List<Integer> indices = new ArrayList<>();
-        for (int i = 0; i < similarities.length; i++) {
-            indices.add(i);
+        //for each anime in the anime list
+        for (Anime anime : animeList) {
+            indices.add(animeList.indexOf(anime));
         }
         indices.sort((i1, i2) -> Double.compare(similarities[i2], similarities[i1]));
 
@@ -152,6 +177,16 @@ public class MainRecommendation {
             }
         }
         return recommendations;
+
+        //or it could be done like this:
+        // return IntStream.range(0, similarities.length)
+        //                .boxed()
+        //                .filter(i -> i != index) // Exclude the picked anime itself
+        //                .sorted((i1, i2) -> Double.compare(similarities[i2], similarities[i1])) // Sort by similarity
+        //                .limit(numRecommendations) // Limit to the number of recommendations
+        //                .map(animeList::get) // Map indices to anime
+        //                .collect(Collectors.toList()); // Collect into a list
+        //
     }
 }
 
