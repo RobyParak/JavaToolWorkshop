@@ -153,40 +153,20 @@ public class MainRecommendation {
      */
     private static List<Anime> getListOfRecommendedAnime(final Anime pickedAnime, final List<Anime> animeList, final int numRecommendations) {
         // find the index of the picked anime in the anime list and store it in the variable index
-        final int index = animeList.indexOf(pickedAnime);
-        if (index == -1) {
-            return new ArrayList<>();
-        }
 
-        // Sort anime by similarity score
-        final double[] similarities = similarityMatrix.getRow(index).toDoubleVector();
+//        if (index == -1) {
+//            return new ArrayList<>();
+//        }
 
-        List<Integer> indices = new ArrayList<>();
-        //for each anime in the anime list
-        for (Anime anime : animeList) {
-            indices.add(animeList.indexOf(anime));
-        }
-        indices.sort((i1, i2) -> Double.compare(similarities[i2], similarities[i1]));
+        // below we need to sort anime by similarity score - starting from getting all similarities in a double array
+        // 1. double[] similarities = similarityMatrix.getRow(index).toDoubleVector();
+        // 2. make a list of indices and add all the indices of the anime list
+        // 3. sort the indices by the similarity score using indices.sort((i1, i2) -> Double.compare(similarities[i2], similarities[i1]));
 
-        // Get recommendations
-        List<Anime> recommendations = new ArrayList<>();
-        for (int i = 0; i < numRecommendations && i < indices.size(); i++) {
-            int animeIndex = indices.get(i);
-            if (animeIndex != index) {
-                recommendations.add(animeList.get(animeIndex));
-            }
-        }
-        return recommendations;
-
-        //or it could be done like this:
-        // return IntStream.range(0, similarities.length)
-        //                .boxed()
-        //                .filter(i -> i != index) // Exclude the picked anime itself
-        //                .sorted((i1, i2) -> Double.compare(similarities[i2], similarities[i1])) // Sort by similarity
-        //                .limit(numRecommendations) // Limit to the number of recommendations
-        //                .map(animeList::get) // Map indices to anime
-        //                .collect(Collectors.toList()); // Collect into a list
-        //
+        // make new list of recommendations and add the anime from the anime list at the index of the sorted indices
+        // use the numRecommendations to limit the number of recommendations in the for loop using numRecommendations variable as the limit
+        // return the list of recommendations instead of null
+        return null;
     }
 }
 
