@@ -43,6 +43,7 @@ public class FuelEfficiencyPrediction {
     private static final Logger log = LoggerFactory.getLogger(FuelEfficiencyPrediction.class);
 
     public static void main(String[] args) throws Exception {
+        // Set up parameters
         final int batchSize = 400;
         final int nEpochs = 2000;
         int seed = 12345;
@@ -50,13 +51,18 @@ public class FuelEfficiencyPrediction {
         int numInputs = 9;
         int numOutputs = 1;
 
+        // Read and split data
         SplitTestAndTrain testAndTrain = getSplitTestAndTrain(batchSize);
         DataSet trainingData = testAndTrain.getTrain();
         DataSet testData = testAndTrain.getTest();
 
+        // Build neural network configuration
         MultiLayerConfiguration conf = buildMultiLayerConfiguration(seed, learningRate, numInputs, numOutputs);
+
+        // Build neural network
         MultiLayerNetwork net = buildMultiLayerNetwork(conf);
 
+        // Train neural network
         log.debug("Fit training data");
         for (int i = 0; i < nEpochs; i++) {
             net.fit(trainingData);
@@ -73,6 +79,7 @@ public class FuelEfficiencyPrediction {
         // Calculate and print correlations
         calculateAndPrintCorrelations(trainingData);
 
+        // Evaluate model
         RegressionEvaluation eval = new RegressionEvaluation(1);
         INDArray output = net.output(testData.getFeatures(), false);
         eval.eval(testData.getLabels(), output);
@@ -84,6 +91,7 @@ public class FuelEfficiencyPrediction {
         log.debug("This is the average R Square: " + eval.averageRSquared());
     }
 
+    // Build neural network with specified configuration
     private static MultiLayerNetwork buildMultiLayerNetwork(MultiLayerConfiguration conf) {
         MultiLayerNetwork net = new MultiLayerNetwork(conf);
         net.init();
@@ -91,6 +99,7 @@ public class FuelEfficiencyPrediction {
         return net;
     }
 
+    // Build neural network configuration
     private static MultiLayerConfiguration buildMultiLayerConfiguration(int seed, double learningRate, int numInputs, int numOutputs) {
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
@@ -112,40 +121,46 @@ public class FuelEfficiencyPrediction {
         return conf;
     }
 
+    // Read and split data from CSV file
     private static SplitTestAndTrain getSplitTestAndTrain(int batchSize) throws IOException, InterruptedException {
+        // CSV headers: 'MPG', 'Cylinders', 'Displacement', 'Horsepower', 'Weight', 'Acceleration', 'Model Year', 'Origin', "Model Name"
 
-        /**
-         * CSV headers
-         * 'MPG', 'Cylinders', 'Displacement', 'Horsepower', 'Weight', 'Acceleration', 'Model Year', 'Origin', "Model Name"
-         */
-
+        // Initialize CSV reader
         CSVRecordReader csvRecordReader = new CSVRecordReader(0, ' ');
         FileSplit inputSplit = new FileSplit(new File("src/main/java/data/auto-mpg.csv"));
         csvRecordReader.initialize(inputSplit);
 
+        // Define data schema
         Schema schema = buildSchema();
+
+        // Define data transformation process
         TransformProcess transformProcess = buildTransformProcess(schema);
         Schema finalSchema = transformProcess.getFinalSchema();
 
+        // Initialize record reader with transformation process
         TransformProcessRecordReader trainRecordReader = new TransformProcessRecordReader(csvRecordReader, transformProcess);
         RecordReaderDataSetIterator trainIterator = new RecordReaderDataSetIterator.Builder(trainRecordReader, batchSize)
                 .regression(finalSchema.getIndexOfColumn("MPG"))
                 .build();
 
+        // Read and normalize data
         DataSet allData = trainIterator.next();
         normalizeDataSet(allData);
         allData.shuffle(123);
 
+        // Split data into train and test sets
         SplitTestAndTrain testAndTrain = allData.splitTestAndTrain(0.65);  //Use 65% of data for training
         return testAndTrain;
     }
 
+    // Normalize dataset
     private static void normalizeDataSet(DataSet allData) {
         NormalizerStandardize normalizerStandardize = new NormalizerStandardize();
         normalizerStandardize.fit(allData);
         normalizerStandardize.transform(allData);
     }
 
+    // Define data transformation process
     private static TransformProcess buildTransformProcess(Schema schema) {
         TransformProcess transformProcess = new TransformProcess.Builder(schema)
                 .removeColumns("Model Name")
@@ -154,6 +169,7 @@ public class FuelEfficiencyPrediction {
         return transformProcess;
     }
 
+    // Define data schema
     private static Schema buildSchema() {
         Schema schema = new Schema.Builder()
                 .addColumnDouble("MPG")
@@ -166,6 +182,7 @@ public class FuelEfficiencyPrediction {
         return schema;
     }
 
+    // Generate scatter plot for specified feature against target variable (MPG)
     private static void generateScatterPlot(DataSet data, String featureName, int featureIndex, String title) {
         XYSeriesCollection dataset = new XYSeriesCollection();
         XYSeries series = new XYSeries(featureName + " vs MPG");
@@ -203,6 +220,7 @@ public class FuelEfficiencyPrediction {
         frame.setVisible(true);
     }
 
+    // Calculate and print correlations between features and target variable (MPG)
     private static void calculateAndPrintCorrelations(DataSet data) {
         INDArray features = data.getFeatures();
         INDArray labels = data.getLabels();
