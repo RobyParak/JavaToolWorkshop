@@ -126,7 +126,7 @@ public class FuelEfficiencyPrediction {
         // CSV headers: 'MPG', 'Cylinders', 'Displacement', 'Horsepower', 'Weight', 'Acceleration', 'Model Year', 'Origin', "Model Name"
 
         // Initialize CSV reader
-        CSVRecordReader csvRecordReader = new CSVRecordReader(0, ' ');
+        CSVRecordReader csvRecordReader = new CSVRecordReader(1, ' ');
         FileSplit inputSplit = new FileSplit(new File("src/main/java/data/auto-mpg.csv"));
         csvRecordReader.initialize(inputSplit);
 
